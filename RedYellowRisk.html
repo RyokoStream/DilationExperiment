@@ -7,6 +7,24 @@
     <button id="drawButton">ボールを取り出す</button>
     <div id="result"></div>
 
-    <script src="main.js"></script>
+    <script>
+        let balls = Array.from({ length: 40 }, (_, i) => (i < 20 ? `赤${i + 1}` : `黄${i - 19}`));
+
+        const drawButton = document.getElementById("drawButton");
+        const resultElement = document.getElementById("result");
+
+        drawButton.addEventListener("click", function() {
+            if (balls.length === 0) {
+                resultElement.textContent = "ボールがありません。ボールを再初期化します。";
+                balls = Array.from({ length: 40 }, (_, i) => (i < 20 ? `赤${i + 1}` : `黄${i - 19}`));
+            } else {
+                // ランダムにボールのインデックスを選ぶ
+                const randomIndex = Math.floor(Math.random() * balls.length);
+                const selectedBall = balls.splice(randomIndex, 1)[0];
+
+                resultElement.textContent = `選ばれたボールは: ${selectedBall}です`;
+            }
+        });
+    </script>
 </body>
 </html>
