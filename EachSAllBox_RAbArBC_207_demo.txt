@@ -27,14 +27,13 @@
     <h1 style="text-align: center;">謝礼金くじ割り当て本番</h1>
     <div id="container">
         <button id="assignButton" onclick="assignNumbers()">被験者にくじ番号を割り当てる</button>
-        <button id="downloadButton" onclick="downloadCSV()">結果をダウンロード</button>
     </div>
     <div id="subjectResults"></div>
 
     <script>
         var subjects = [];
         var boxNames = ['箱R', '箱AB', '箱AR', '箱B', '箱C'];
-        var numSubjects = 16;  // 被験者数を207から222までの16人に設定
+        var numSubjects = 19;  // 被験者数を207から225までの19人に設定
 
         function assignNumbers() {
             subjects = [];  // 既存のデータをクリア
@@ -75,28 +74,6 @@
                 subjectDiv.innerHTML = resultsText;
                 subjectResultsDiv.appendChild(subjectDiv);
             });
-        }
-
-        function downloadCSV() {
-            var csvContent = "data:text/csv;charset=utf-8,";
-
-            // CSVのヘッダー
-            csvContent += "被験者ID," + boxNames.join(",") + "\n";
-
-            // CSVの各行
-            subjects.forEach(function(subject) {
-                var row = subject.id + "," + boxNames.map(boxName => subject.numbers[boxName]).join(",");
-                csvContent += row + "\n";
-            });
-
-            var encodedUri = encodeURI(csvContent);
-            var link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "results_207.csv");
-            document.body.appendChild(link); // Required for FF
-
-            link.click();
-            document.body.removeChild(link);
         }
     </script>
 </body>
