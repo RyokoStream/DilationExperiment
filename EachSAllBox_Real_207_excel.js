@@ -34,7 +34,7 @@
     <script>
         var subjects = [];
         var boxNames = ['箱R', '箱AB', '箱AR', '箱B', '箱C'];
-        var numSubjects = 16;  // 被験者数を207から222までの16人に設定
+        var numSubjects = 19;  // 被験者数を207から222までの16人に設定
 
         function assignNumbers() {
             subjects = [];  // 既存のデータをクリア
