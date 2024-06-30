@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">謝礼金くじ割り当て本番</h1>
+    <h1 style="text-align: center;">謝礼金くじ割り当てデモンストレーション</h1>
     <div id="container">
         <button id="assignButton" onclick="assignNumbers()">被験者にくじ番号を割り当てる</button>
     </div>

@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">謝礼金くじ割り当て本番</h1>
+    <h1 style="text-align: center;">謝礼金くじ割り当てデモンストレーション</h1>
     <div id="container">
         <button id="assignButton" onclick="assignNumbers()">被験者にくじ番号を割り当てる</button>
     </div>
@@ -40,8 +40,7 @@
 
             for (var i = 0; i < numSubjects; i++) {
                 var numbers = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
-                var subject = { id: 240
- + i, numbers: {} };
+                var subject = { id: 240 + i, numbers: {} };
                 
                 boxNames.forEach(function(boxName, index) {
                     subject.numbers[boxName] = numbers[index];
