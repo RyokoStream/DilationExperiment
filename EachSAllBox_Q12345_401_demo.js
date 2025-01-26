@@ -32,8 +32,10 @@
 </div>
 
 <script>
-    var startNumber = 401;
-    var numberOfSubjects = 40;
+console.log("生成された被験者ID:", subjects);
+
+    var startNumber = 398;
+    var numberOfSubjects = 43;
     var subjects = Array.from({ length: numberOfSubjects }, (_, i) => startNumber + i);
     var problemMapping = {
         1: "問題１＆問題２",
@@ -52,11 +54,17 @@
         var subjectResultsDiv = document.getElementById('subjectResults');
         subjectResultsDiv.innerHTML = ''; // 既存の結果をクリア
 
+        console.log("対象被験者:", subjects); // デバッグ用ログ
+
         subjects.forEach(subjectId => {
             var min = 1;
             var max = 10;
             var uniformVirtualDiceResult = Math.floor(Math.random() * (max - min + 1)) + min;
             var result = problemMapping[uniformVirtualDiceResult];
+            if (!result) {
+                console.error(`Error: No mapping found for dice result ${uniformVirtualDiceResult}`);
+                result = "未定義のペア";
+            }
             var subjectDiv = document.createElement('div');
             subjectDiv.innerHTML = `被験者 ${subjectId}: ${result}`;
             subjectResultsDiv.appendChild(subjectDiv);
