@@ -34,8 +34,8 @@
 <script>
 console.log("生成された被験者ID:", subjects);
 
-    var startNumber = 399;
-    var numberOfSubjects = 42;
+    var startNumber = 398;
+    var numberOfSubjects = 43;
     var subjects = Array.from({ length: numberOfSubjects }, (_, i) => startNumber + i);
     var problemMapping = {
         1: "問題１＆問題２",
